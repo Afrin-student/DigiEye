@@ -57,18 +57,18 @@ function stopDrawing() {
   ctx.beginPath();
 }
 
-canvas.addEventListener("mousedown", startDrawing);
-canvas.addEventListener("mousemove", draw);
-canvas.addEventListener("mouseup", stopDrawing);
-canvas.addEventListener("mouseleave", stopDrawing);
 
-canvas.addEventListener("touchstart", startDrawing, {
-  passive: false
+canvas.addEventListener("pointerdown", (event) => {
+  event.preventDefault();
+  canvas.setPointerCapture(event.pointerId);
+  startDrawing(event);
 });
-canvas.addEventListener("touchmove", draw, {
-  passive: false
-});
-canvas.addEventListener("touchend", stopDrawing);
+
+canvas.addEventListener("pointermove", draw);
+canvas.addEventListener("pointerup", stopDrawing);
+canvas.addEventListener("pointercancel", stopDrawing);
+canvas.addEventListener("lostpointercapture", stopDrawing);
+
 
 // Clear canvas
 function clearCanvas() {
