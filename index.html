@@ -1,0 +1,29 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DigiEye - Digit Recognition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🔢 DigiEye</h1>
+    <p>AI Handwritten Digit Recognition</p>
+
+    <canvas id="canvas" width="280" height="280"></canvas>
+
+    <div>
+      <button onclick="clearCanvas()">Clear</button>
+      <button onclick="predictDigit()">Predict</button>
+    </div>
+
+    <h2>Prediction: <span id="prediction">--</span></h2>
+    <p>Confidence: <span id="confidence">--</span></p>
+
+    <script src="script.js"></script>
+  </div>
+</body>
+</html>
+```
